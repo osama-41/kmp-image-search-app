@@ -1,24 +1,42 @@
 [versions]
-agp = "8.7.3"
-android-compileSdk = "35"
+agp = "8.12.3"
+android-compileSdk = "36"
 android-minSdk = "24"
-android-targetSdk = "35"
-androidx-activity = "1.9.3"
-androidx-appcompat = "1.7.0"
-androidx-core = "1.15.0"
-androidx-espresso = "3.6.1"
-androidx-lifecycle = "2.8.7"
-androidx-testExt = "1.2.1"
-composeMultiplatform = "1.7.3"
+android-targetSdk = "36"
+androidx-activity = "1.12.4"
+androidx-appcompat = "1.7.1"
+androidx-core = "1.17.0"
+androidx-espresso = "3.7.0"
+androidx-lifecycle = "2.9.6"
+androidx-testExt = "1.3.0"
+composeMultiplatform = "1.10.2"
 junit = "4.13.2"
-kotlin = "2.1.0"
-material3 = "1.3.1"
-ktor = "3.0.3"
-koin = "4.0.0"
-kmpObservableViewModel = "1.0.0-BETA-14"
-kotlinxSerialization = "1.8.0"
-ksp = "2.1.0-1.0.29"
-nativeCoroutines = "1.0.0-ALPHA-39"
+kotlin = "2.3.10"
+material3 = "1.10.0-alpha05"
+kmpObservableviewmodelCore = "1.0.2"
+ksp = "2.2.0-2.0.2"
+
+
+
+kotlinx-coroutines = "1.10.2"
+koin = "4.1.1"
+ktor = "3.4.1"
+sqldelight = "2.1.0"
+
+compose = "1.9.0" # or your Compose Multiplatform version
+
+sqlite = "2.5.2"
+androidx-room = "2.7.2"
+
+coil = "3.3.0"
+
+dateTime = "0.7.1"
+compose-material3 = "1.3.2"
+material = "1.12.0"
+
+composeBom = "2025.08.00"
+material3Version = "1.4.0"
+
 
 [libraries]
 kotlin-test = { module = "org.jetbrains.kotlin:kotlin-test", version.ref = "kotlin" }
@@ -34,27 +52,41 @@ androidx-lifecycle-viewmodelCompose = { module = "org.jetbrains.androidx.lifecyc
 androidx-lifecycle-runtimeCompose = { module = "org.jetbrains.androidx.lifecycle:lifecycle-runtime-compose", version.ref = "androidx-lifecycle" }
 compose-runtime = { module = "org.jetbrains.compose.runtime:runtime", version.ref = "composeMultiplatform" }
 compose-foundation = { module = "org.jetbrains.compose.foundation:foundation", version.ref = "composeMultiplatform" }
+
+compose-material = { module = "androidx.compose.material:material", name = "1.6.8" }
 compose-material3 = { module = "org.jetbrains.compose.material3:material3", version.ref = "material3" }
+
 compose-ui = { module = "org.jetbrains.compose.ui:ui", version.ref = "composeMultiplatform" }
 compose-components-resources = { module = "org.jetbrains.compose.components:components-resources", version.ref = "composeMultiplatform" }
 compose-uiToolingPreview = { module = "org.jetbrains.compose.ui:ui-tooling-preview", version.ref = "composeMultiplatform" }
-# Koin
+
+# KMP Observable
+kmp-observableviewmodel-core = { module = "com.rickclephas.kmp:kmp-observableviewmodel-core", version.ref = "kmpObservableviewmodelCore" }
+
+material = { group = "com.google.android.material", name = "material", version.ref = "material" }
+
+# KOIN Dependency Injection
 koin-core = { module = "io.insert-koin:koin-core", version.ref = "koin" }
 koin-compose = { module = "io.insert-koin:koin-compose", version.ref = "koin" }
 koin-compose-viewmodel = { module = "io.insert-koin:koin-compose-viewmodel", version.ref = "koin" }
 
-# Ktor
+# KTOR Client
 ktor-client-core = { module = "io.ktor:ktor-client-core", version.ref = "ktor" }
-ktor-client-content-negotiation = { module = "io.ktor:ktor-client-content-negotiation", version.ref = "ktor" }
-ktor-client-serialization = { module = "io.ktor:ktor-serialization-kotlinx-json", version.ref = "ktor" }
 ktor-client-android = { module = "io.ktor:ktor-client-okhttp", version.ref = "ktor" }
 ktor-client-ios = { module = "io.ktor:ktor-client-darwin", version.ref = "ktor" }
+ktor-client-desktop = { module = "io.ktor:ktor-client-cio", version.ref = "ktor" }
+ktor-client-logging = { module = "io.ktor:ktor-client-logging", version.ref = "ktor" }
+ktor-client-content-negotiation = { module = "io.ktor:ktor-client-content-negotiation", version.ref = "ktor" }
+ktor-client-serialization = { module = "io.ktor:ktor-serialization-kotlinx-json", version.ref = "ktor" }
 
 # Serialization
-kotlinx-serialization-json = { module = "org.jetbrains.kotlinx:kotlinx-serialization-json", version.ref = "kotlinxSerialization" }
+kotlinx-serialization = { module = "org.jetbrains.kotlinx:kotlinx-serialization-json", version = "1.10.0" }
 
-# KMP Observable ViewModel
-kmp-observableviewmodel-core = { module = "com.rickclephas.kmp:kmp-observableviewmodel-core", version.ref = "kmpObservableViewModel" }
+navigation-compose = { module = "org.jetbrains.androidx.navigation:navigation-compose", version = "2.9.2" }
+
+# Coil Image Loading Library
+coil = { module = "io.coil-kt.coil3:coil-compose", version.ref = "coil" }
+coil-ktor = { module = "io.coil-kt.coil3:coil-network-ktor3", version.ref = "coil" }
 
 [plugins]
 androidApplication = { id = "com.android.application", version.ref = "agp" }
@@ -62,6 +94,6 @@ androidLibrary = { id = "com.android.library", version.ref = "agp" }
 composeMultiplatform = { id = "org.jetbrains.compose", version.ref = "composeMultiplatform" }
 composeCompiler = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "kotlin" }
 kotlinMultiplatform = { id = "org.jetbrains.kotlin.multiplatform", version.ref = "kotlin" }
+kotlinx-serialization = { id = "org.jetbrains.kotlin.plugin.serialization", version = "2.3.10" }
+native-coroutines = {id = "com.rickclephas.kmp.nativecoroutines",version= "1.0.1"}
 ksp = { id = "com.google.devtools.ksp", version.ref = "ksp" }
-native-coroutines = { id = "com.rickclephas.kmp.nativecoroutines", version.ref = "nativeCoroutines" }
-kotlinx-serialization = { id = "org.jetbrains.kotlin.plugin.serialization", version.ref = "kotlin" }
